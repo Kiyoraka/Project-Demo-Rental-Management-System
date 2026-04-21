@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Reports — RentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="tenant-sidebar"></div>
+
+    <div class="dashboard-main">
+      <div data-partial="tenant-topbar"></div>
+
+      <main class="dashboard-content">
+        <div class="page-head">
+          <h2 class="page-head__title">My Reports</h2>
+          <div class="page-head__actions">
+            <button class="btn btn--ghost" id="export-csv"><i data-lucide="download"></i>Export CSV</button>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="field">
+            <label class="field__label" for="f-year">Year</label>
+            <select class="select" id="f-year"></select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-month">Month</label>
+            <select class="select" id="f-month">
+              <option value="">All</option>
+              <option value="0">January</option>  <option value="1">February</option>
+              <option value="2">March</option>    <option value="3">April</option>
+              <option value="4">May</option>      <option value="5">June</option>
+              <option value="6">July</option>     <option value="7">August</option>
+              <option value="8">September</option><option value="9">October</option>
+              <option value="10">November</option><option value="11">December</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="text-muted" id="reports-summary"></p>
+
+        <div class="table-wrap table-wrap--stack" id="reports-table-wrap"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/tenant/reports.js"></script>
+</body>
+</html>
