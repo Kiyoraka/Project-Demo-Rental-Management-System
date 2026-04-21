@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <base href="../" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Gateway — Admin</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/tokens.css" />
-  <link rel="stylesheet" href="/assets/css/base.css" />
-  <link rel="stylesheet" href="/assets/css/components.css" />
-  <link rel="stylesheet" href="/assets/css/layout-public.css" />
-  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
-  <link rel="stylesheet" href="/assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout-public.css" />
+  <link rel="stylesheet" href="assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
   <div class="dashboard-shell">
@@ -20,7 +22,7 @@
     <div class="dashboard-main">
       <div data-partial="admin-topbar"></div>
       <main class="dashboard-content">
-        <a href="/admin/settings.html" class="btn btn--link"><i data-lucide="arrow-left"></i>Settings</a>
+        <a href="admin/settings.html" class="btn btn--link"><i data-lucide="arrow-left"></i>Settings</a>
         <div class="page-head"><h2 class="page-head__title">Payment Gateway</h2></div>
 
         <form class="card" id="gw-form" style="max-width:640px;">
@@ -58,7 +60,7 @@
               <span class="badge badge--success"><span class="badge__dot"></span>Connected (mock)</span>
             </div>
             <div class="row row--between">
-              <a href="/admin/settings.html" class="btn btn--ghost">Cancel</a>
+              <a href="admin/settings.html" class="btn btn--ghost">Cancel</a>
               <button class="btn btn--primary" type="submit">Save gateway</button>
             </div>
           </div>
@@ -68,7 +70,7 @@
   </div>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script type="module" src="/assets/js/partials.js"></script>
-  <script type="module" src="/assets/js/admin/payment-gateway.js"></script>
+  <script type="module" src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/admin/payment-gateway.js"></script>
 </body>
 </html>

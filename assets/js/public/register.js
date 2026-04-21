@@ -14,7 +14,7 @@ function renderTarget() {
   wrap.innerHTML = `
     Registering for:
     <strong>${escapeHtml(rental.title)}</strong> — ${formatCurrency(rental.pricePerMonth)}/mo
-    <a href="/rent.html" class="btn btn--link btn--sm">change</a>`;
+    <a href="rent.html" class="btn btn--link btn--sm">change</a>`;
 }
 
 document.getElementById('register-form')?.addEventListener('submit', (e) => {
@@ -53,7 +53,7 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
       targetRole: 'tenant',
     });
     toast({ variant:'success', title:'Account created!', body:'Redirecting to your dashboard...' });
-    setTimeout(() => { window.location.href = '/tenant/payment.html'; }, 600);
+    setTimeout(() => { window.location.href = 'tenant/payment.html'; }, 600);
   } catch (err) {
     toast({ variant:'error', title: err.message || 'Registration failed' });
   }

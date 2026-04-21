@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <base href="../" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin — RentHub</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/tokens.css" />
-  <link rel="stylesheet" href="/assets/css/base.css" />
-  <link rel="stylesheet" href="/assets/css/components.css" />
-  <link rel="stylesheet" href="/assets/css/layout-public.css" />
-  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
-  <link rel="stylesheet" href="/assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout-public.css" />
+  <link rel="stylesheet" href="assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
   <div class="dashboard-shell">
@@ -42,7 +44,7 @@
         <section class="panel mt-6">
           <header class="panel__header">
             <h3 class="panel__title">Recent payments</h3>
-            <a href="/admin/reports.html" class="btn btn--link">View all</a>
+            <a href="admin/reports.html" class="btn btn--link">View all</a>
           </header>
           <div class="panel__body" id="recent-payments"></div>
         </section>
@@ -52,7 +54,7 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script type="module" src="/assets/js/partials.js"></script>
-  <script type="module" src="/assets/js/admin/main.js"></script>
+  <script type="module" src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/admin/main.js"></script>
 </body>
 </html>

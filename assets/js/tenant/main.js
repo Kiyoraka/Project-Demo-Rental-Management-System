@@ -19,7 +19,7 @@ function render() {
         <div class="empty-state__icon"><i data-lucide="home"></i></div>
         <div class="empty-state__title">No active rental</div>
         <div class="empty-state__body">You don't have an active tenancy yet.</div>
-        <a href="/rent.html" class="btn btn--primary">Browse rentals</a>
+        <a href="rent.html" class="btn btn--primary">Browse rentals</a>
       </div>`;
     if (window.lucide) window.lucide.createIcons();
     return;
@@ -44,7 +44,7 @@ function render() {
     <section class="card mb-6">
       <h3 class="card__title">Current rental</h3>
       <div class="rental-summary">
-        <img class="rental-summary__img" src="${escapeHtml(rental?.images?.[0] || '/assets/img/rentals/01.jpg')}" alt="${escapeHtml(rental?.title || '')}" onerror="this.src='/assets/img/rentals/01.jpg'" />
+        <img class="rental-summary__img" src="${escapeHtml(rental?.images?.[0] || 'assets/img/rentals/01.jpg')}" alt="${escapeHtml(rental?.title || '')}" onerror="this.src='assets/img/rentals/01.jpg'" />
         <div>
           <h4 class="rental-summary__title">${escapeHtml(rental?.title || '—')}</h4>
           <div class="rental-summary__meta">
@@ -63,7 +63,7 @@ function render() {
         <div class="text-sm" style="opacity:0.85;">Next payment</div>
         <div class="pay-due-card__amount">${formatCurrency(rental?.pricePerMonth || 0)}</div>
         <div class="pay-due-card__meta">Due on ${formatDate(nextDue)}</div>
-        <a href="/tenant/payment.html" class="btn">Pay Now</a>
+        <a href="tenant/payment.html" class="btn">Pay Now</a>
       </div>
       <div class="card">
         <h3 class="card__title">This month</h3>
@@ -78,7 +78,7 @@ function render() {
     <section class="panel">
       <header class="panel__header">
         <h3 class="panel__title">Recent payments</h3>
-        <a href="/tenant/reports.html" class="btn btn--link">View all</a>
+        <a href="tenant/reports.html" class="btn btn--link">View all</a>
       </header>
       <div class="panel__body">
         ${payments.length === 0 ? `

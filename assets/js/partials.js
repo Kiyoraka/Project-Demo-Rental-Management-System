@@ -4,7 +4,7 @@ async function loadPartial(el) {
   const name = el.dataset.partial;
   if (!name) return;
   try {
-    const res = await fetch(`/partials/${name}.html`);
+    const res = await fetch(`partials/${name}.html`);
     if (!res.ok) throw new Error(`Partial ${name} failed: ${res.status}`);
     const html = await res.text();
     const wrapper = document.createElement('div');
@@ -19,12 +19,17 @@ async function loadPartial(el) {
 }
 
 function highlightActiveLink() {
-  const path = window.location.pathname.replace(/\/index\.html$/, '/');
+  // Resolve current page's href via the document base, then compare link targets
+  const current = new URL(window.location.href);
+  const currentPath = current.pathname.replace(/\/index\.html$/, '/');
   document.querySelectorAll('[data-nav-link]').forEach(a => {
-    const href = a.getAttribute('href').replace(/\/index\.html$/, '/');
-    if (href === path || (href !== '/' && path.startsWith(href))) {
-      a.classList.add('is-active');
-    }
+    try {
+      const linkUrl = new URL(a.getAttribute('href'), document.baseURI);
+      const linkPath = linkUrl.pathname.replace(/\/index\.html$/, '/');
+      if (linkPath === currentPath) {
+        a.classList.add('is-active');
+      }
+    } catch {}
   });
 }
 

@@ -11,13 +11,13 @@ function render() {
   const r = store.get('rentals', id);
   if (!r) { root.innerHTML = notFound(); return; }
 
-  const mainImg = r.images?.[0] || '/assets/img/rentals/01.jpg';
+  const mainImg = r.images?.[0] || 'assets/img/rentals/01.jpg';
   const thumbs = (r.images && r.images.length > 1)
     ? r.images
-    : ['/assets/img/rentals/01.jpg', '/assets/img/rentals/02.jpg', '/assets/img/rentals/03.jpg', '/assets/img/rentals/04.jpg'];
+    : ['assets/img/rentals/01.jpg', 'assets/img/rentals/02.jpg', 'assets/img/rentals/03.jpg', 'assets/img/rentals/04.jpg'];
 
   const registerHref = r.status === 'available'
-    ? `/register.html?rentalId=${encodeURIComponent(r.id)}`
+    ? `register.html?rentalId=${encodeURIComponent(r.id)}`
     : '#';
 
   const ctaDisabled = r.status !== 'available' ? 'disabled' : '';
@@ -26,11 +26,11 @@ function render() {
     <div class="rental-detail">
       <div class="rental-detail__gallery">
         <div class="rental-detail__main">
-          <img id="main-img" src="${escapeHtml(mainImg)}" alt="${escapeHtml(r.title)}" onerror="this.src='/assets/img/rentals/01.jpg'" />
+          <img id="main-img" src="${escapeHtml(mainImg)}" alt="${escapeHtml(r.title)}" onerror="this.src='assets/img/rentals/01.jpg'" />
         </div>
         <div class="rental-detail__thumbs">
           ${thumbs.slice(0, 4).map((t, i) => `
-            <img src="${escapeHtml(t)}" alt="thumb" class="${i === 0 ? 'is-active' : ''}" data-thumb onerror="this.src='/assets/img/rentals/01.jpg'" />
+            <img src="${escapeHtml(t)}" alt="thumb" class="${i === 0 ? 'is-active' : ''}" data-thumb onerror="this.src='assets/img/rentals/01.jpg'" />
           `).join('')}
         </div>
 
@@ -86,7 +86,7 @@ function notFound() {
       <div class="empty-state__icon"><i data-lucide="home"></i></div>
       <div class="empty-state__title">Rental not found</div>
       <div class="empty-state__body">The rental you are looking for does not exist.</div>
-      <a href="/rent.html" class="btn btn--primary">Browse rentals</a>
+      <a href="rent.html" class="btn btn--primary">Browse rentals</a>
     </div>`;
 }
 

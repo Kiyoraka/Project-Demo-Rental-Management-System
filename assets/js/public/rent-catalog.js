@@ -40,9 +40,9 @@ function render() {
   }
 
   grid().innerHTML = list.map(r => `
-    <a href="/rent-detail.html?id=${encodeURIComponent(r.id)}" class="rental-card">
+    <a href="rent-detail.html?id=${encodeURIComponent(r.id)}" class="rental-card">
       <div class="rental-card__media">
-        <img src="${escapeHtml(r.images?.[0] || '/assets/img/rentals/01.jpg')}" alt="${escapeHtml(r.title)}" onerror="this.src='/assets/img/rentals/01.jpg'" />
+        <img src="${escapeHtml(r.images?.[0] || 'assets/img/rentals/01.jpg')}" alt="${escapeHtml(r.title)}" onerror="this.src='assets/img/rentals/01.jpg'" />
         ${r.status === 'available'
           ? '<span class="rental-card__badge badge badge--success"><span class="badge__dot"></span>Available</span>'
           : '<span class="rental-card__badge badge badge--muted"><span class="badge__dot"></span>Occupied</span>'}

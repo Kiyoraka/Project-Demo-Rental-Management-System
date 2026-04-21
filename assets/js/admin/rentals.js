@@ -38,7 +38,7 @@ function render() {
       <tbody>
         ${list.map(r => `
           <tr>
-            <td data-label="Image"><img src="${escapeHtml(r.images?.[0] || '/assets/img/rentals/01.jpg')}" alt="" style="width:56px;height:40px;object-fit:cover;border-radius:6px;" onerror="this.src='/assets/img/rentals/01.jpg'" /></td>
+            <td data-label="Image"><img src="${escapeHtml(r.images?.[0] || 'assets/img/rentals/01.jpg')}" alt="" style="width:56px;height:40px;object-fit:cover;border-radius:6px;" onerror="this.src='assets/img/rentals/01.jpg'" /></td>
             <td data-label="Title">${escapeHtml(r.title)}</td>
             <td data-label="Location">${escapeHtml(r.location || '—')}</td>
             <td data-label="Price">${formatCurrency(r.pricePerMonth)}</td>
@@ -46,7 +46,7 @@ function render() {
             <td data-label="Baths">${r.bathrooms}</td>
             <td data-label="Status"><span class="badge badge--${r.status === 'available' ? 'success' : 'muted'}"><span class="badge__dot"></span>${r.status}</span></td>
             <td data-label="Actions" class="table__actions">
-              <a class="btn btn--ghost btn--sm" href="/rent-detail.html?id=${encodeURIComponent(r.id)}" target="_blank" title="View"><i data-lucide="eye"></i></a>
+              <a class="btn btn--ghost btn--sm" href="rent-detail.html?id=${encodeURIComponent(r.id)}" target="_blank" title="View"><i data-lucide="eye"></i></a>
               <button class="btn btn--ghost btn--sm" data-act="edit" data-id="${r.id}" title="Edit"><i data-lucide="edit-2"></i></button>
               <button class="btn btn--ghost btn--sm" data-act="delete" data-id="${r.id}" title="Delete"><i data-lucide="trash-2"></i></button>
             </td>

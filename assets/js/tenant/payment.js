@@ -12,7 +12,7 @@ function render() {
   const tenant = store.list('tenants').find(t => t.userId === user.id);
   const root = document.getElementById('pay-root');
   if (!tenant) {
-    root.innerHTML = `<div class="empty-state"><div class="empty-state__title">No active rental</div><a href="/rent.html" class="btn btn--primary">Browse rentals</a></div>`;
+    root.innerHTML = `<div class="empty-state"><div class="empty-state__title">No active rental</div><a href="rent.html" class="btn btn--primary">Browse rentals</a></div>`;
     return;
   }
   const rental = store.get('rentals', tenant.rentalId);
@@ -108,7 +108,7 @@ function render() {
           </dl>`,
         footerHtml: `
           <button class="btn btn--ghost" data-act="close">Close</button>
-          <a href="/tenant/reports.html" class="btn btn--primary">View reports</a>`,
+          <a href="tenant/reports.html" class="btn btn--primary">View reports</a>`,
         onOpen: (root) => {
           root.querySelector('[data-act="close"]').addEventListener('click', () => root.querySelector('.modal__close').click());
         },
