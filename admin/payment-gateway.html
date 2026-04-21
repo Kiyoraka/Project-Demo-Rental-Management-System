@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Gateway — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="admin-sidebar"></div>
+    <div class="dashboard-main">
+      <div data-partial="admin-topbar"></div>
+      <main class="dashboard-content">
+        <a href="/admin/settings.html" class="btn btn--link"><i data-lucide="arrow-left"></i>Settings</a>
+        <div class="page-head"><h2 class="page-head__title">Payment Gateway</h2></div>
+
+        <form class="card" id="gw-form" style="max-width:640px;">
+          <div class="stack">
+            <div class="field">
+              <label class="field__label" for="g-provider">Provider</label>
+              <select class="select" id="g-provider">
+                <option>Stripe</option>
+                <option>Razorpay</option>
+                <option>Billplz</option>
+                <option>iPay88</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="g-pk">Publishable key</label>
+              <input class="input" id="g-pk" placeholder="pk_test_..." />
+            </div>
+            <div class="field">
+              <label class="field__label" for="g-sk">Secret key</label>
+              <input class="input" id="g-sk" type="password" placeholder="sk_test_..." />
+            </div>
+            <div class="field">
+              <label class="field__label" for="g-webhook">Webhook URL</label>
+              <input class="input" id="g-webhook" placeholder="https://.../webhook" />
+            </div>
+            <div class="row row--between row--center">
+              <span>Enabled</span>
+              <label class="switch"><input type="checkbox" id="g-enabled"><span class="switch__slider"></span></label>
+            </div>
+            <div class="row row--between row--center">
+              <span>Test mode</span>
+              <label class="switch"><input type="checkbox" id="g-test"><span class="switch__slider"></span></label>
+            </div>
+            <div>
+              <span class="badge badge--success"><span class="badge__dot"></span>Connected (mock)</span>
+            </div>
+            <div class="row row--between">
+              <a href="/admin/settings.html" class="btn btn--ghost">Cancel</a>
+              <button class="btn btn--primary" type="submit">Save gateway</button>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/admin/payment-gateway.js"></script>
+</body>
+</html>
