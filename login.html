@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — RentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div data-partial="public-navbar"></div>
+
+  <main class="auth-shell">
+    <div class="auth-card">
+      <h1 class="auth-card__title">Welcome back</h1>
+      <p class="auth-card__subtitle">Log in to manage your rental</p>
+
+      <form id="login-form" novalidate>
+        <div class="stack">
+          <div class="field">
+            <label class="field__label" for="email">Email</label>
+            <input class="input" id="email" type="email" autocomplete="username" required />
+          </div>
+          <div class="field">
+            <label class="field__label" for="password">Password</label>
+            <input class="input" id="password" type="password" autocomplete="current-password" required />
+          </div>
+          <button class="btn btn--primary btn--block" type="submit">Log in</button>
+        </div>
+      </form>
+
+      <p class="text-center text-sm text-muted mt-6">
+        No account? <a href="/rent.html">Browse rentals</a> to register.
+      </p>
+
+      <div class="auth-demo">
+        <strong>Demo credentials</strong>
+        Admin: admin@gmail.com / admin123<br />
+        Tenant: tenant@gmail.com / admin123
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/public/login.js"></script>
+</body>
+</html>
