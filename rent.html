@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Rentals — RentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div data-partial="public-navbar"></div>
+
+  <main class="container section">
+    <h1>Browse Rentals</h1>
+
+    <div class="filter-bar">
+      <div class="field">
+        <label class="field__label" for="f-max">Max price</label>
+        <select class="select" id="f-max">
+          <option value="">Any</option>
+          <option value="1500">Under RM1,500</option>
+          <option value="2500">Under RM2,500</option>
+          <option value="3500">Under RM3,500</option>
+          <option value="5000">Under RM5,000</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-bed">Bedrooms</label>
+        <select class="select" id="f-bed">
+          <option value="">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-status">Status</label>
+        <select class="select" id="f-status">
+          <option value="">All</option>
+          <option value="available">Available</option>
+          <option value="occupied">Occupied</option>
+        </select>
+      </div>
+      <div class="filter-bar__actions">
+        <button class="btn btn--ghost" id="filter-reset">Clear filters</button>
+      </div>
+    </div>
+
+    <p class="text-muted" id="result-count">Loading...</p>
+    <div class="rental-grid rental-grid--3" id="rental-grid"></div>
+  </main>
+
+  <div data-partial="public-footer"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/public/rent-catalog.js"></script>
+</body>
+</html>
