@@ -1,5 +1,8 @@
 # List of ignore folder and files
 /[Tt]emp/
+# Alice working-plan folder - never commit
+/Project Resources/
+/Project Resources/**
 # List of ignore files
 *.exe
 *.txt
