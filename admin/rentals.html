@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rentals — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="admin-sidebar"></div>
+    <div class="dashboard-main">
+      <div data-partial="admin-topbar"></div>
+      <main class="dashboard-content">
+        <div class="page-head">
+          <h2 class="page-head__title">Rentals</h2>
+          <div class="page-head__actions">
+            <button class="btn btn--primary" id="add-rental"><i data-lucide="plus"></i>Add Rental</button>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search">
+            <span class="search__icon"><i data-lucide="search"></i></span>
+            <input class="input" id="rental-search" placeholder="Search..." />
+          </div>
+          <div class="field">
+            <label class="field__label" for="rental-status-filter">Status</label>
+            <select class="select" id="rental-status-filter">
+              <option value="">All</option>
+              <option value="available">Available</option>
+              <option value="occupied">Occupied</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap table-wrap--stack" id="rental-table-wrap"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/admin/rentals.js"></script>
+</body>
+</html>
