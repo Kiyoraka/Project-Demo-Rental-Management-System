@@ -1,0 +1,151 @@
+/* Responsive — mobile breakpoints (<= 768px) */
+
+@media (max-width: 1024px) {
+  .rental-grid--4 { grid-template-columns: repeat(3, 1fr); }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-split { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  /* ===== Public navbar ===== */
+  .navbar__links { display: none; }
+  .navbar__links.is-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--topbar-h);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-4);
+    gap: var(--space-2);
+  }
+  .navbar__cta .btn { display: none; }
+  .navbar__cta .btn.navbar__login-mobile { display: inline-flex; }
+  .navbar__toggle { display: inline-flex; }
+
+  /* ===== Hero ===== */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-6);
+  }
+  .hero__title { font-size: var(--text-3xl); }
+  .hero__subtitle { font-size: var(--text-md); }
+
+  /* ===== Rental grid ===== */
+  .rental-grid--3, .rental-grid--4 { grid-template-columns: 1fr; }
+
+  /* ===== Filter bar ===== */
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .filter-bar .field { width: 100%; }
+  .filter-bar__actions { margin-left: 0; }
+
+  /* ===== Steps ===== */
+  .steps { grid-template-columns: 1fr; }
+
+  /* ===== About ===== */
+  .grid--3, .grid--4 { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-6); }
+
+  /* ===== Rental detail ===== */
+  .rental-detail { grid-template-columns: 1fr; }
+  .rental-detail__info { position: static; }
+
+  /* ===== Contact ===== */
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* ===== Section padding ===== */
+  .section { padding: var(--space-8) 0; }
+
+  /* ===== Dashboard — drawer sidebar ===== */
+  .dashboard-shell { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: var(--z-drawer);
+    transform: translateX(-100%);
+    transition: transform var(--transition);
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebar.is-open { transform: translateX(0); }
+  .topbar__toggle { display: inline-flex; }
+
+  /* ===== Dashboard content ===== */
+  .dashboard-content { padding: var(--space-6) var(--space-4); }
+  .stat-grid, .stat-grid--2, .stat-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .page-head { flex-direction: column; align-items: stretch; }
+  .page-head__actions { justify-content: flex-end; }
+
+  /* ===== Tenant summary ===== */
+  .rental-summary {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .rental-summary__img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    aspect-ratio: 16/10;
+  }
+
+  /* ===== Tables -> cards ===== */
+  .table-wrap.table-wrap--stack .table { display: block; }
+  .table-wrap.table-wrap--stack .table thead { display: none; }
+  .table-wrap.table-wrap--stack .table tbody,
+  .table-wrap.table-wrap--stack .table tr,
+  .table-wrap.table-wrap--stack .table td { display: block; }
+  .table-wrap.table-wrap--stack .table tr {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border);
+  }
+  .table-wrap.table-wrap--stack .table tr:last-child { border-bottom: none; }
+  .table-wrap.table-wrap--stack .table td {
+    padding: var(--space-1) 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  .table-wrap.table-wrap--stack .table td::before {
+    content: attr(data-label);
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .table-wrap.table-wrap--stack .table__actions { justify-content: flex-end; margin-top: var(--space-2); }
+
+  /* ===== Notification dropdown ===== */
+  .notif-dropdown { width: calc(100vw - var(--space-8)); max-width: 340px; }
+
+  /* ===== Form grid -> 1 col ===== */
+  .form-grid { grid-template-columns: 1fr; }
+
+  /* ===== Modal full width ===== */
+  .modal { max-width: 100%; }
+
+  /* ===== Toast ===== */
+  .toast-container { top: var(--space-4); right: var(--space-4); left: var(--space-4); }
+  .toast { min-width: 0; max-width: none; width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .stat-grid, .stat-grid--2, .stat-grid--3 { grid-template-columns: 1fr; }
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { width: 100%; }
+  .topbar { padding: 0 var(--space-4); gap: var(--space-2); }
+  .topbar__title { font-size: var(--text-md); }
+}
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
