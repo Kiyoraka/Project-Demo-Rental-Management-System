@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenants — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="admin-sidebar"></div>
+    <div class="dashboard-main">
+      <div data-partial="admin-topbar"></div>
+      <main class="dashboard-content">
+        <div class="page-head">
+          <h2 class="page-head__title">Tenants</h2>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search">
+            <span class="search__icon"><i data-lucide="search"></i></span>
+            <input class="input" id="tenant-search" placeholder="Search by name or email..." />
+          </div>
+          <div class="field">
+            <label class="field__label" for="tenant-status">Status</label>
+            <select class="select" id="tenant-status">
+              <option value="">All</option>
+              <option value="active">Active</option>
+              <option value="ended">Ended</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap table-wrap--stack" id="tenant-table-wrap"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/admin/tenants.js"></script>
+</body>
+</html>
