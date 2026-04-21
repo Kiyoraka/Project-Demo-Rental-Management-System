@@ -1,0 +1,113 @@
+<header class="topbar">
+  <button class="topbar__toggle" id="sidebar-toggle" aria-label="Open navigation">
+    <i data-lucide="menu"></i>
+  </button>
+
+  <h1 class="topbar__title" id="topbar-title">My Dashboard</h1>
+
+  <div class="topbar__actions">
+    <div class="dropdown" id="notif-dropdown">
+      <button class="notif-bell" id="notif-bell" aria-label="Notifications">
+        <i data-lucide="bell"></i>
+        <span class="notif-bell__badge hidden" id="notif-badge">0</span>
+      </button>
+      <div class="dropdown__menu notif-dropdown" id="notif-menu">
+        <div class="notif-dropdown__header">
+          <span>Notifications</span>
+          <button class="btn btn--link btn--sm" id="notif-mark-all">Mark all read</button>
+        </div>
+        <div id="notif-list"></div>
+      </div>
+    </div>
+
+    <div class="dropdown" id="user-dropdown">
+      <button class="user-menu" id="user-menu-btn">
+        <span class="avatar">T</span>
+        <span class="user-menu__name" id="user-menu-name">Tenant</span>
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <div class="dropdown__menu">
+        <button class="dropdown__item" id="logout-btn"><i data-lucide="log-out"></i>Logout</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script type="module">
+  import { currentUser, logout } from '/assets/js/auth.js';
+  import { listFor, unreadCount, markRead, markAllRead } from '/assets/js/notifications.js';
+  import { relativeTime, escapeHtml } from '/assets/js/ui.js';
+
+  function wire() {
+    const user = currentUser();
+    if (user) {
+      document.getElementById('user-menu-name').textContent = user.name;
+      const av = document.querySelector('.user-menu .avatar');
+      if (av) av.textContent = (user.name || 'T').charAt(0).toUpperCase();
+    }
+
+    document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.toggle('is-open');
+      document.getElementById('sidebar-backdrop')?.classList.toggle('is-open');
+    });
+    document.getElementById('sidebar-backdrop')?.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.remove('is-open');
+      document.getElementById('sidebar-backdrop')?.classList.remove('is-open');
+    });
+
+    document.getElementById('user-menu-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('user-dropdown')?.classList.toggle('is-open');
+      document.getElementById('notif-dropdown')?.classList.remove('is-open');
+    });
+    document.getElementById('notif-bell')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('notif-dropdown')?.classList.toggle('is-open');
+      document.getElementById('user-dropdown')?.classList.remove('is-open');
+    });
+    document.addEventListener('click', () => {
+      document.getElementById('user-dropdown')?.classList.remove('is-open');
+      document.getElementById('notif-dropdown')?.classList.remove('is-open');
+    });
+
+    document.getElementById('logout-btn')?.addEventListener('click', () => logout());
+    document.getElementById('notif-mark-all')?.addEventListener('click', () => {
+      markAllRead('tenant');
+      renderBell();
+    });
+
+    renderBell();
+  }
+
+  function renderBell() {
+    const list = listFor('tenant').slice(0, 10);
+    const unread = unreadCount('tenant');
+    const badge = document.getElementById('notif-badge');
+    if (badge) {
+      badge.textContent = unread;
+      badge.classList.toggle('hidden', unread === 0);
+    }
+    const container = document.getElementById('notif-list');
+    if (!container) return;
+    if (list.length === 0) {
+      container.innerHTML = '<div class="notif-dropdown__empty">No notifications yet</div>';
+      return;
+    }
+    container.innerHTML = list.map(n => `
+      <div class="notif-dropdown__item ${n.read ? '' : 'is-unread'}" data-id="${n.id}">
+        <div class="notif-dropdown__dot"></div>
+        <div style="flex:1;">
+          <div class="notif-dropdown__title">${escapeHtml(n.title)}</div>
+          <div class="notif-dropdown__body">${escapeHtml(n.message)}</div>
+          <div class="notif-dropdown__time">${relativeTime(n.createdAt)}</div>
+        </div>
+      </div>
+    `).join('');
+    container.querySelectorAll('.notif-dropdown__item').forEach(el => {
+      el.addEventListener('click', () => { markRead(el.dataset.id); renderBell(); });
+    });
+  }
+
+  window.addEventListener('partials:ready', wire, { once: true });
+  if (document.querySelector('#sidebar-toggle')) wire();
+</script>
