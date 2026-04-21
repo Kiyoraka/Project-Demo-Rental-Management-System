@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — RentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div data-partial="public-navbar"></div>
+
+  <main class="container section">
+    <div id="target-rental" class="text-muted text-sm mb-4"></div>
+
+    <div class="auth-card" style="margin:0 auto;max-width:560px;">
+      <h1 class="auth-card__title">Create your account</h1>
+      <p class="auth-card__subtitle">Register to rent with RentHub</p>
+
+      <form id="register-form" novalidate>
+        <div class="stack">
+          <div class="field">
+            <label class="field__label" for="r-name">Full name</label>
+            <input class="input" id="r-name" required />
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="r-email">Email</label>
+              <input class="input" id="r-email" type="email" required />
+            </div>
+            <div class="field">
+              <label class="field__label" for="r-phone">Phone</label>
+              <input class="input" id="r-phone" placeholder="+60 1X-XXX XXXX" required />
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="r-password">Password</label>
+              <input class="input" id="r-password" type="password" required minlength="6" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="r-password2">Confirm password</label>
+              <input class="input" id="r-password2" type="password" required minlength="6" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="r-move">Preferred move-in date</label>
+            <input class="input" id="r-move" type="date" required />
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="r-terms" required />
+            <span>I agree to the terms and conditions</span>
+          </label>
+          <button class="btn btn--primary btn--block" type="submit">Create account &amp; continue</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <div data-partial="public-footer"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/public/register.js"></script>
+</body>
+</html>
