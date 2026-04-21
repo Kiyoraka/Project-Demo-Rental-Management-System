@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentHub — Find your next home</title>
+  <meta name="description" content="Hand-picked apartments across KL. Transparent pricing. No broker fees." />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div data-partial="public-navbar"></div>
+
+  <main id="page-home">
+    <section class="hero container">
+      <div class="hero__content">
+        <h1 class="hero__title">Find your next home,<br />rent it in minutes.</h1>
+        <p class="hero__subtitle">Hand-picked apartments across KL. Transparent pricing. No broker fees.</p>
+        <div class="hero__cta">
+          <a href="/rent.html" class="btn btn--primary">Browse Rentals</a>
+          <a href="#how" class="btn btn--ghost">How it works</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <img src="/assets/img/rentals/01.jpg" alt="Modern condo" />
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2 class="section__title">Featured Rentals</h2>
+      <div id="featured-rentals" class="rental-grid rental-grid--3"></div>
+    </section>
+
+    <section id="how" class="container section">
+      <h2 class="section__title">How it works</h2>
+      <ol class="steps">
+        <li><span class="steps__num">1</span><strong>Browse</strong><span>listings</span></li>
+        <li><span class="steps__num">2</span><strong>Register</strong><span>in 2 minutes</span></li>
+        <li><span class="steps__num">3</span><strong>Move in</strong><span>same week</span></li>
+      </ol>
+    </section>
+
+    <section class="container section">
+      <h2 class="section__title">Trusted by tenants</h2>
+      <blockquote class="quote">
+        <p>&ldquo;Smooth experience. Found my place in a day.&rdquo;</p>
+        <cite>— Aina, Bangsar</cite>
+      </blockquote>
+    </section>
+  </main>
+
+  <div data-partial="public-footer"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/public/home.js"></script>
+</body>
+</html>
