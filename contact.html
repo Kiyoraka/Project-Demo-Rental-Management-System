@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — RentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div data-partial="public-navbar"></div>
+
+  <main class="container section">
+    <div class="text-center mb-8">
+      <h1>Contact Us</h1>
+      <p class="text-muted">We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="card" id="contact-form" novalidate>
+        <h3 class="card__title">Get in touch</h3>
+        <div class="stack">
+          <div class="field">
+            <label class="field__label" for="c-name">Name</label>
+            <input class="input" id="c-name" required />
+          </div>
+          <div class="field">
+            <label class="field__label" for="c-email">Email</label>
+            <input class="input" id="c-email" type="email" required />
+          </div>
+          <div class="field">
+            <label class="field__label" for="c-message">Message</label>
+            <textarea class="textarea" id="c-message" rows="5" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send message</button>
+        </div>
+      </form>
+
+      <aside class="contact-info">
+        <div class="contact-info__item">
+          <span class="contact-info__icon"><i data-lucide="map-pin"></i></span>
+          <div>
+            <div class="contact-info__label">Address</div>
+            <div>Level 20, KLCC, Kuala Lumpur</div>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <span class="contact-info__icon"><i data-lucide="phone"></i></span>
+          <div>
+            <div class="contact-info__label">Phone</div>
+            <div>+60 3-1234 5678</div>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <span class="contact-info__icon"><i data-lucide="mail"></i></span>
+          <div>
+            <div class="contact-info__label">Email</div>
+            <div>hello@renthub.my</div>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <span class="contact-info__icon"><i data-lucide="clock"></i></span>
+          <div>
+            <div class="contact-info__label">Hours</div>
+            <div>Mon–Fri 9am–6pm</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div data-partial="public-footer"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module">
+    import { toast } from '/assets/js/ui.js';
+    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const msg = document.getElementById('c-message').value.trim();
+      if (!name || !email || !msg) {
+        toast({ variant: 'error', title: 'Please fill all fields' });
+        return;
+      }
+      toast({ variant: 'success', title: 'Message sent!', body: 'We will get back to you soon.' });
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
