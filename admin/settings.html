@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/layout-public.css" />
+  <link rel="stylesheet" href="/assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="admin-sidebar"></div>
+    <div class="dashboard-main">
+      <div data-partial="admin-topbar"></div>
+      <main class="dashboard-content">
+        <div class="page-head"><h2 class="page-head__title">Settings</h2></div>
+
+        <form class="card mb-6" id="company-form">
+          <h3 class="card__title">Company</h3>
+          <div class="stack">
+            <div class="field">
+              <label class="field__label" for="s-name">Company name</label>
+              <input class="input" id="s-name" />
+            </div>
+            <div class="field">
+              <label class="field__label">Logo</label>
+              <div class="row row--center">
+                <label class="btn btn--ghost btn--sm"><i data-lucide="upload"></i>Upload<input type="file" id="s-logo" accept="image/*" hidden></label>
+                <span class="img-preview" id="s-logo-preview"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="s-currency">Currency</label>
+              <select class="select" id="s-currency">
+                <option value="RM">RM (Ringgit)</option>
+                <option value="SGD">SGD</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+            <div>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card mb-6">
+          <h3 class="card__title">Payment Gateway</h3>
+          <p class="text-muted">Configure the external payment provider.</p>
+          <a href="/admin/payment-gateway.html" class="btn btn--ghost"><i data-lucide="arrow-right"></i>Open gateway settings</a>
+        </div>
+
+        <div class="card" style="border-color:var(--danger);">
+          <h3 class="card__title" style="color:var(--danger);">Danger zone</h3>
+          <p class="text-muted">Reset all demo data back to initial seed. All admin edits, registrations, and payments will be wiped.</p>
+          <button class="btn btn--danger" id="reset-btn"><i data-lucide="refresh-cw"></i>Reset demo data</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="/assets/js/partials.js"></script>
+  <script type="module" src="/assets/js/admin/settings.js"></script>
+</body>
+</html>
