@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — Admin</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout-public.css" />
+  <link rel="stylesheet" href="assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <div data-partial="admin-sidebar"></div>
+    <div class="dashboard-main">
+      <div data-partial="admin-topbar"></div>
+      <main class="dashboard-content">
+        <div class="page-head"><h2 class="page-head__title">Profile</h2></div>
+
+        <div class="card mb-6">
+          <h3 class="card__title">Account</h3>
+          <div class="stack">
+            <div class="field">
+              <label class="field__label">Name</label>
+              <div id="p-name" class="text-muted">—</div>
+            </div>
+            <div class="field">
+              <label class="field__label">Email</label>
+              <div id="p-email" class="text-muted">—</div>
+            </div>
+            <div class="field">
+              <label class="field__label">Role</label>
+              <div id="p-role" class="text-muted">—</div>
+            </div>
+            <div class="field">
+              <label class="field__label">Signed in since</label>
+              <div id="p-session" class="text-muted">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title">Quick actions</h3>
+          <div class="row row--center" style="gap:var(--space-2); flex-wrap:wrap;">
+            <a href="admin/settings.html" class="btn btn--ghost"><i data-lucide="settings"></i>Open settings</a>
+            <button class="btn btn--danger" id="profile-logout-btn"><i data-lucide="log-out"></i>Logout</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="assets/js/partials.js"></script>
+  <script type="module" src="assets/js/admin/profile.js"></script>
+</body>
+</html>

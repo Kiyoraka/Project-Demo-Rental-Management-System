@@ -139,6 +139,8 @@
   .hero__cta .btn { width: 100%; }
   .topbar { padding: 0 var(--space-4); gap: var(--space-2); }
   .topbar__title { font-size: var(--text-md); }
+  .user-menu__name { display: none; }
+  .user-menu { padding: var(--space-1); }
 }
 
 /* Reduced-motion respect */
