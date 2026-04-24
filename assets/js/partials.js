@@ -9,9 +9,25 @@ async function loadPartial(el) {
     const html = await res.text();
     const wrapper = document.createElement('div');
     wrapper.innerHTML = html.trim();
-    // Replace the placeholder with the rendered content (keep first root element)
-    while (wrapper.firstChild) el.parentNode.insertBefore(wrapper.firstChild, el);
-    el.remove();
+
+    // Collect any scripts before DOM insertion — scripts parsed via innerHTML
+    // are flagged "already started" and will not execute. We clone them into
+    // fresh script nodes after their sibling DOM is in place.
+    const pendingScripts = Array.from(wrapper.querySelectorAll('script'));
+    pendingScripts.forEach(s => s.remove());
+
+    // Move remaining nodes into the live DOM in the placeholder's slot.
+    const anchor = el;
+    while (wrapper.firstChild) anchor.parentNode.insertBefore(wrapper.firstChild, anchor);
+    anchor.remove();
+
+    // Revive each script so its code actually runs.
+    pendingScripts.forEach(old => {
+      const s = document.createElement('script');
+      for (const attr of old.attributes) s.setAttribute(attr.name, attr.value);
+      if (!old.src) s.textContent = old.textContent;
+      document.body.appendChild(s);
+    });
   } catch (err) {
     console.error(err);
     el.innerHTML = `<div style="padding:12px; color:#b00;">Failed to load ${name}</div>`;

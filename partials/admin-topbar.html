@@ -36,9 +36,9 @@
 </header>
 
 <script type="module">
-  import { currentUser, logout } from '../assets/js/auth.js';
-  import { listFor, unreadCount, markRead, markAllRead } from '../assets/js/notifications.js';
-  import { relativeTime, escapeHtml } from '../assets/js/ui.js';
+  import { currentUser, logout } from './assets/js/auth.js';
+  import { listFor, unreadCount, markRead, markAllRead } from './assets/js/notifications.js';
+  import { relativeTime, escapeHtml } from './assets/js/ui.js';
 
   function wire() {
     const user = currentUser();
